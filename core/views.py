@@ -18,10 +18,5 @@ def index(request):
 
     FastMarkerCluster(data=list(zip(latitudes, longitudes))).add_to(m)
 
-    # #Add a marker to the map for each station
-    # for station in stations:
-    #     coordinates = (station.latitude, station.longitude)
-    #     folium.Marker(coordinates, popup=station.station_name).add_to(m)
-
     context = {'map': m._repr_html_(),'stations':stations}
     return render(request, 'index.html', context)
